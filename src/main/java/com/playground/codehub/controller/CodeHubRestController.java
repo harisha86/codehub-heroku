@@ -3,15 +3,19 @@ package com.playground.codehub.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CodeHubRestController {
+	@Value("${server.port}")
+	private String portNumber;
+
     @GetMapping("/")
 	public String Welcome() {
-		return "Welcome to home - Harisha";
+		return "Welcome to home - Harisha \n You are on the Port : " + portNumber;
 	}
 
 	@GetMapping("/list")
